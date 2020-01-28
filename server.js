@@ -15,3 +15,9 @@ db.sequelize.sync({ force: true }).then(function() {
     console.log("App listening on PORT " + PORT);
   });
 });
+
+app.post("/api/inventory", function(req, res) {
+  db.inventory.create("tomato", 10, "eaches").then(function(dbInventory) {
+    res.json(dbInventory);
+  });
+});
