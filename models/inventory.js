@@ -20,6 +20,18 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    critical: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    isCritical: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: false
     }
   });
 
