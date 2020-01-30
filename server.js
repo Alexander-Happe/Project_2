@@ -11,7 +11,11 @@ app.use(express.json());
 app.use(express.static("public"));
 
 require("./routes/html-routes.js")(app);
+<<<<<<< HEAD
+require("./routes/inv-api-routes")(app);
+=======
 require("./routes/inv-api-routes.js")(app);
+>>>>>>> master
 
 db.sequelize.sync({ force: true }).then(function () {
   app.listen(PORT, function () {

@@ -1,35 +1,30 @@
+<<<<<<< HEAD
+$(document).ready(function() {
+=======
 $(document).ready(function () {
   var list = $("#ingred-list");
 
+>>>>>>> master
   getIngredients();
+  var ingredList = $(".ingred-list");
 
   // Function for retrieving ingredients and getting them ready to be rendered to the page
   function getIngredients() {
+<<<<<<< HEAD
+    $.get("/api/inventory", function(data) {
+=======
     $.get("/api/ingredients", function (data) {
+>>>>>>> master
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(data[i]);
+        rowsToAdd.push(data[i].item);
       }
-      renderIngredients(rowsToAdd);
-      nameInput.val("");
+    }).then(function(data) {
+      for (var i = 0; i < data.length; i++) {
+        ingredItem = $("<div></div>");
+        ingredItem.text(data[i].item);
+        ingredList.append(ingredItem);
+      }
     });
-  }
-
-  //Function for rendering the list of ingredients to the page
-  function renderIngredients(rows) {
-    if (rows.length) {
-      console.log(rows);
-      list.prepend(rows);
-    } else {
-      renderEmpty();
-    }
-  }
-
-  // Function for handling what to render when there are no ingredients in the database
-  function renderEmpty() {
-    var alertDiv = $("<div>");
-    alertDiv.addClass("alert alert-danger");
-    alertDiv.text("There are no ingredients to list here!");
-    list.append(alertDiv);
   }
 });
