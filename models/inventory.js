@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     isCritical: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false
+      defaultValue: false
     }
   });
 
