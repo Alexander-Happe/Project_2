@@ -10,14 +10,17 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
+require("./routes/html-routes.js")(app);
+require("./routes/inv-api-routes.js")(app);
+
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });
 
-app.post("/api/inventory", function(req, res) {
-  db.inventory.create("tomato", 10, "eaches").then(function(dbInventory) {
+app.post("/api/inventory", function (req, res) {
+  db.inventory.create("tomato", 10, "eaches").then(function (dbInventory) {
     res.json(dbInventory);
   });
 });
