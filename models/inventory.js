@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Inventory = sequelize.define("Inventory", {
     item: {
       type: DataTypes.STRING,
@@ -31,11 +31,11 @@ module.exports = function(sequelize, DataTypes) {
     isCritical: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: false
+      defaultValue: false
     }
   });
 
-  Inventory.associate = function(models) {
+  Inventory.associate = function (models) {
     Inventory.hasMany(models.Recipe);
   };
 

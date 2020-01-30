@@ -1,11 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var list = $("#ingred-list");
 
   getIngredients();
 
   // Function for retrieving ingredients and getting them ready to be rendered to the page
   function getIngredients() {
-    $.get("/api/ingredients", function(data) {
+    $.get("/api/ingredients", function (data) {
       var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
         rowsToAdd.push(data[i]);
