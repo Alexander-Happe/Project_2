@@ -6,14 +6,6 @@ module.exports = function(app) {
     db.Inventory.findAll({}).then(function(dbInv) {
       res.json(dbInv);
     });
-<<<<<<< HEAD
-  });
-  app.get("/api/critical", function(req, res) {
-    db.Inventory.findAll({
-      where: { isCritical: true }
-    }).then(function(dbInv) {
-      res.json(dbInv);
-=======
     app.get("/api/receive/:upc", function (req, res) {
         axios({
             url: 'https://api.upcitemdb.com/prod/trial/lookup?upc=' + req.params.upc,
@@ -30,7 +22,6 @@ module.exports = function(app) {
         }).then(function (dbInv) {
             res.json(dbInv)
         });
->>>>>>> master
     });
   });
   app.post("/api/inventory", function(req, res) {
@@ -44,36 +35,6 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-  app
-    .put("/api/inventory/:id", function(req, res) {
-      db.Inventory.update(
-        {
-          qty: req.body.qty
-        },
-        {
-          where: {
-            id: req.params.id
-          }
-        }
-      );
-    })
-    .then(function(req, res) {
-      db.Inventory.update(
-        {
-          isCritical: false
-        },
-        {
-          where: {
-            qty: {
-              $gte: db.inventories.critical
-            }
-          }
-        }
-      ).then(function(dbInv) {
-        res.json(dbInv);
-      });
-=======
 
     app.put("/api/inventory/:id", function (req, res) {
         db.Inventory.update({
@@ -96,7 +57,6 @@ module.exports = function(app) {
                 res.json(dbInv);
             });
         });
->>>>>>> master
     });
   app.put("/api/inventory/:id", function(req, res) {
     db.Inventory.update(
