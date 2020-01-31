@@ -29,7 +29,8 @@ module.exports = function(app) {
       item: req.body.item,
       qty: req.body.qty,
       unit: req.body.unit,
-      critical: req.body.critical
+      critical: req.body.critical,
+      isCritical: req.body.isCritical
     }).then(function(dbInv) {
       res.json(dbInv);
     });
