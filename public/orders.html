@@ -57,70 +57,78 @@
       </div>
       <div class="navbar-end"></div>
     </nav>
-    <!-- Main container -->
-    <section class="section">
-      <div class="container">
-        <h3 class="level-item is-size-3">Critical Items</h3>
-        <div class="box">
-          <div class="field has-addons" id="criticalItemField">
-            <div class="control">
-              <div class="level">
-                <!-- <input
-                  type="text"
-                  class="input level-item"
-                  placeholder=""
-                  value=""
-                /> -->
-                <p>
-                  hello
-                </p>
 
-                <div class="control">
-                  <button class="button is- level-item">
-                    Add to order
+    <!-- Main container -->
+    <div class="block">
+      <section class="section">
+        <div class="container">
+          <h3 class="level-item is-size-3">Ordered form</h3>
+          <div class="box">
+            <div class="columns">
+              <div class="column is-5">
+                <!-- ordered item column -->
+                <div class="column is-full">ITEM:</div>
+                <div class="column is-full">
+                  <input
+                    type="text"
+                    class="input level-item"
+                    placeholder=""
+                    value=""
+                  />
+                </div>
+              </div>
+
+              <!-- quantity column -->
+              <div class="column is-2">
+                <div class="column is-full">QUANTITY:</div>
+                <div class="column is-full">
+                  <div class="select">
+                    <select>
+                      <option>5</option>
+                      <option>10</option>
+                      <option>15</option>
+                      <option>20</option>
+                      <option>25</option>
+                      <option>30</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="column is-2">
+                <div class="column is-full">UNITS:</div>
+                <div class="column is-full">
+                  <div class="select">
+                    <select>
+                      <option>each</option>
+                      <option>oz</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-2">
+                <div class="column is-full">DELETE ITEM:</div>
+                <div class="column is-full">
+                  <button class="button level-item">
+                    Remove
                   </button>
                 </div>
               </div>
             </div>
+            <div class="columns is-centered">
+              <div class="column has-text-centered is-4 ">
+                <button
+                  class="button  is-large 
+              is-success"
+                >
+                  CREATE ORDER
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!--Box container to hold list of ingredients-->
-    <!-- <div class="container">
-      <div class="box">
-        <div class="block">
-          <h1 class="title">Hello World</h1>
-          <h2 class="subtitle">Hello to you too</h2>
-        </div>
-      </div>
-      <div class="box">
-        <div class="block">
-          <p class="content is-small">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            harum!
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            harum!
-          </p>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit,
-            harum!
-          </p>
-        </div>
-      </div>
-      <div class="block">
-        <button class="button">Button</button>
-        <button class="button is-white">Button</button>
-        <button class="button is-light">Button</button>
-        <button class="button is-dark">Button</button>
-        <button class="button is-black">Button</button>
-        <button class="button is-link">Button</button>
-        <a href="" class="button is-primary"></a>
-      </div> -->
-
+      </section>
+    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

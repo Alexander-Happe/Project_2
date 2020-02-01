@@ -1,12 +1,12 @@
-INSERT INTO Inventories
-    (item, qty, unit, createdAt, updatedAt, critical, isCritical)
+INSERT INTO inventories
+    (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('Tomato', 10, 'each', '2020-01-27 12:18:01', '2020-01-27 01:18:01', 100, false);
+    ('TOMATO', 10, 'each', 5, false, '2020-01-27 12:18:01', '2020-01-27 01:18:01');
 INSERT INTO Inventories
-    (item, qty, unit, createdAt, updatedAt, critical, isCritical)
+    (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('Potato', 10, 'each', '2020-01-27 01:18:01', '2020-01-27 01:18:01', 5, true);
+    ('POTATO', 10, 'each', 5, false, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
 INSERT INTO Inventories
-    (item, qty, unit, createdAt, updatedAt, critical, isCritical )
+    (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('Flour', 10, 'lbs', '2020-01-27 01:18:01', '2020-01-27 01:18:01', 5, true);
+    ('FLOUR', 10, 'lbs', 3, false, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
