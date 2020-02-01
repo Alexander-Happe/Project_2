@@ -13,13 +13,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
     />
+    <link rel='stylesheet' href="assets/css/inventory.css"/>
   </head>
 
-  <body class="has-background-primary hsl(171, 100%, 41%)">
-    <!-- Bulma Navbar Skeleton -->
+  <body class="has-background-primary hsl(141, 53%, 53%)">
+    <!-- Bulma Navbar -->
     <nav class="navbar box" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-image" href="/inventory">
+        <a class="navbar-image" href="/">
           <img src="assets/img/logo.png" width="200" height="50" />
         </a>
         <a
@@ -36,7 +37,9 @@
       </div>
       <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
-          <a class="navbar-item is-size-3" href="/inventory"> </a>
+          <a class="navbar-item is-size-3" href="/">
+            View Inventory
+          </a>
           <a class="navbar-item is-size-3" href="/orders">
             Order Inventory
           </a>
@@ -51,9 +54,24 @@
       <div class="navbar-end"></div>
     </nav>
     <!--Box container to hold list of ingredients-->
-    <div class="box ingred-list"></div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <div class="columns">
+      <div class="box column is-half is-offset-one-quarter">
+        <div class="subtitle is-4 has-text-centered">CURRENT INVENTORY:</div>
+        <table class="table is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th>ITEM</th>
+              <th>QUANTITY</th>
+              <th>UNIT</th>
+              <th>CRITICAL LOW</th>
+            </tr>
+          </thead>
+          <tfoot>
+          <tbody class='ingred-list'></tbody> 
+        </table>
+      </div>
+    </div>
+    <!-- JavaScript and Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/inventory.js"></script>
     <script src="assets/js/app.js"></script>

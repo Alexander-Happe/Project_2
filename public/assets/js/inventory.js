@@ -1,30 +1,35 @@
-<<<<<<< HEAD
 $(document).ready(function() {
-=======
-$(document).ready(function () {
-  var list = $("#ingred-list");
-
->>>>>>> master
-  getIngredients();
   var ingredList = $(".ingred-list");
-
-  // Function for retrieving ingredients and getting them ready to be rendered to the page
-  function getIngredients() {
-<<<<<<< HEAD
+  ListCritical();
+  // Function to list all ingredients critically low
+  function ListCritical() {
     $.get("/api/inventory", function(data) {
-=======
-    $.get("/api/ingredients", function (data) {
->>>>>>> master
-      var rowsToAdd = [];
       for (var i = 0; i < data.length; i++) {
-        rowsToAdd.push(data[i].item);
+        if (data[i].isCritical === true) {
+          var crit = 'YES'
+          var ingredItem = `<tr class="toolow"><td> ${data[i].item} </td> 
+          <td> ${data[i].qty} </td>
+          <td> ${data[i].unit} </td>
+          <td> ${crit} </td></tr>`;
+          ingredList.append(ingredItem);
+        }
       }
-    }).then(function(data) {
+      ListNormal();
+    })
+  };
+  //Function to list all ingredients not ciritcally low
+  function ListNormal() {
+    $.get("/api/inventory", function(data) {
       for (var i = 0; i < data.length; i++) {
-        ingredItem = $("<div></div>");
-        ingredItem.text(data[i].item);
-        ingredList.append(ingredItem);
+        if (data[i].isCritical === false) {
+          var crit = 'NO'
+          var ingredItem = `<tr><td> ${data[i].item} </td> 
+          <td> ${data[i].qty} </td>
+          <td> ${data[i].unit} </td>
+          <td> ${crit} </td></tr>`;
+          ingredList.append(ingredItem);
+        }
       }
-    });
-  }
+    })
+  };
 });
