@@ -1,10 +1,11 @@
 var db = require("../models");
 var axios = require("axios")
 
-module.exports = function(app) {
-  app.get("/api/inventory", function(req, res) {
-    db.Inventory.findAll({}).then(function(dbInv) {
-      res.json(dbInv);
+module.exports = function (app) {
+    app.get("/api/inventory", function (req, res) {
+        db.Inventory.findAll({}).then(function (dbInv) {
+            res.json(dbInv);
+        });
     });
     app.get("/api/receive/:upc", function (req, res) {
         axios({
@@ -23,18 +24,18 @@ module.exports = function(app) {
             res.json(dbInv)
         });
     });
-  });
-  app.post("/api/inventory", function(req, res) {
-    db.Inventory.create({
-      item: req.body.item,
-      qty: req.body.qty,
-      unit: req.body.unit,
-      critical: req.body.critical,
-      isCritical: req.body.isCritical
-    }).then(function(dbInv) {
-      res.json(dbInv);
+
+    app.post("/api/inventory", function (req, res) {
+        db.Inventory.create({
+            item: req.body.item,
+            qty: req.body.qty,
+            unit: req.body.unit,
+            critical: req.body.critical,
+            isCritical: req.body.isCritical
+        }).then(function (dbInv) {
+            res.json(dbInv);
+        });
     });
-  });
 
 
     app.put("/api/inventory/:id", function (req, res) {
@@ -59,20 +60,20 @@ module.exports = function(app) {
             });
         });
     });
-  app.put("/api/inventory/:id", function(req, res) {
-    db.Inventory.update(
-      {
-        isCritical: false
-      },
-      {
-        where: {
-          qty: {
-            $gte: db.inventories.critical
-          }
-        }
-      }
-    ).then(function(dbInv) {
-      res.json(dbInv);
+    app.put("/api/inventory/:id", function (req, res) {
+        db.Inventory.update(
+            {
+                isCritical: false
+            },
+            {
+                where: {
+                    qty: {
+                        $gte: db.inventories.critical
+                    }
+                }
+            }
+        ).then(function (dbInv) {
+            res.json(dbInv);
+        });
     });
-  });
 };
