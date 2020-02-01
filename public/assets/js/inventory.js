@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.get("/api/inventory", function(data) {
       for (var i = 0; i < data.length; i++) {
         if (data[i].isCritical === true) {
-          var crit = 'YES'
+          var crit = "YES";
           var ingredItem = `<tr class="toolow"><td> ${data[i].item} </td> 
           <td> ${data[i].qty} </td>
           <td> ${data[i].unit} </td>
@@ -15,21 +15,21 @@ $(document).ready(function() {
         }
       }
       ListNormal();
-    })
-  };
+    });
+  }
   //Function to list all ingredients not ciritcally low
   function ListNormal() {
     $.get("/api/inventory", function(data) {
       for (var i = 0; i < data.length; i++) {
         if (data[i].isCritical === false) {
-          var crit = 'NO'
-          var ingredItem = `<tr><td> ${data[i].item} </td> 
+          var crit = "NO";
+          var ingredItem = `<tr class='normalAmount'><td> ${data[i].item} </td> 
           <td> ${data[i].qty} </td>
           <td> ${data[i].unit} </td>
           <td> ${crit} </td></tr>`;
           ingredList.append(ingredItem);
         }
       }
-    })
-  };
+    });
+  }
 });
