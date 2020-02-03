@@ -10,7 +10,7 @@ $(document).ready(function() {
           var ingredItem = `<tr class="toolow"><td> ${data[i].item} </td> 
           <td> ${data[i].qty} </td>
           <td> ${data[i].unit} </td>
-          <td> ${crit} </td></tr>`;
+          <td> ${crit}</td></tr>`;
           ingredList.append(ingredItem);
         }
       }
