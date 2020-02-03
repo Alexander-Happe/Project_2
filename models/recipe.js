@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Recipe = sequelize.define("Recipe", {
     name: {
       type: DataTypes.STRING,
@@ -8,67 +8,67 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     qty1: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty2: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty3: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty4: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty5: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty6: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty7: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty8: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty9: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     },
     qty10: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       validate: {
         len: [1]
       }
     }
   });
-  Recipe.associate = function(models) {
+  Recipe.associate = function (models) {
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient1" });
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient2" });
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient3" });

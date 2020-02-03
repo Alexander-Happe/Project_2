@@ -1,12 +1,12 @@
-$(document).ready(function() {
+$(document).ready(function () {
   getCriticalItems();
 
   function getCriticalItems() {
-    $.get("/api/orders", function(data) {
+    $.get("/api/orders", function (data) {
       var allItems = [];
       var criticalItems = [];
       var length = data.length;
-      for (i = 0; i < length; i++) {}
+      for (i = 0; i < length; i++) { }
     });
   }
 });
