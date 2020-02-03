@@ -1,12 +1,17 @@
 $(document).ready(function() {
-  getCriticalItems();
-
-  function getCriticalItems() {
-    $.get("/api/orders", function(data) {
-      var allItems = [];
-      var criticalItems = [];
-      var length = data.length;
-      for (i = 0; i < length; i++) {}
+  var criticalItemField = $("#criticalItemField");
+  ListCritical();
+  // Function to list all ingredients critically low
+  function ListCritical() {
+    $.get("/api/inventory", function(data) {
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].isCritical === true) {
+          var criticalItem = `<tr class="toolow"><td> ${data[i].item} </td> 
+          <td> ${data[i].qty} </td>
+          <td> ${data[i].unit} </td>`;
+          criticalItemField.append(criticalItem);
+        }
+      }
     });
   }
 });
