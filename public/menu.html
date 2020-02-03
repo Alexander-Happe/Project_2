@@ -53,11 +53,21 @@
       <div class="navbar-end"></div>
     </nav>
     <!--Box container to hold list of ingredients-->
-    <div class="box">Menu</div>
-    <div class="box" class="menu-container">
-      <h1>Menu Items</h1>
-      <ul class="menu-list"></ul>
-    </div>
+    <div class="columns">
+      <div class="box column is-half is-offset-one-quarter">
+        <div class="subtitle is-4 has-text-centered">Menu List</div>
+        <table class="table is-fullwidth is-hoverable">
+          <thead>
+            <tr>
+              <th>Menu Item</th>
+              <th>Make Item</th>
+              <th>Delete Item</th>
+            </tr>
+          </thead>
+          <tfoot>
+          <tbody class="menu-list"></tbody>
+        </table>
+      </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
