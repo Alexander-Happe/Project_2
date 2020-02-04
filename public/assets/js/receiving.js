@@ -39,6 +39,9 @@ $(document).ready(function () {
 
     $("#submit").on('click', function () {
         console.log("yes");
+        var x = document.getElementById("snackbar");
+        x.className = "show";
+        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
 
         $("#list").empty();
 

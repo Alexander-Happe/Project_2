@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="./assets/css/receive.css">
 </head>
 
-<body class="has-background-primary hsl(171, 100%, 41%)">
+<body>
   <!-- Bulma Navbar Skeleton -->
   <nav class="navbar box" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -44,10 +44,11 @@
     <div class="navbar-end"></div>
   </nav>
   <!--Box container to hold list of ingredients-->
-  <div class="box">
+  <div class="box column is-half is-offset-one-quarter is-gapless">
+    <div class="subtitle is-4 has-text-centered">RECEIVING FORM</div>
     <div id="Receive list"><input type="text" name="scan" placeholder="Scan an item" id=scan>
       <ul id="list">
-        <li id="listItem">
+        <li id="listItem" class="is-centered">
           <span id="itemHeader">Item:</span>
           <span id="item">Potato</span>
           <span id="qtyHeader">Quantity:</span>
@@ -56,7 +57,17 @@
           <input id="unit" value="Each">
         </li>
       </ul>
-      <button id="submit">Submit</button>
+      <div class="columns is-centered">
+        <div class="column has-text-centered is-4 ">
+          <button
+            id="submit"
+            class="button is-large is-success"
+          >
+            SUBMIT
+          </button>
+        </div>
+        <div id="snackbar"> Items added to inventory</div>
+    </div>
     </div>
   </div>
   <!-- Optional JavaScript -->
@@ -68,7 +79,7 @@
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <script src="assets/js/app.js"></script>
   <script src="assets/js/receiving.js"></script>
 </body>
 
