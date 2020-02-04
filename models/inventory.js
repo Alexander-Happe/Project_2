@@ -8,7 +8,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     },
     qty: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DECIMAL(10, 2),
       allowNull: false,
       validate: {
         len: [1]
