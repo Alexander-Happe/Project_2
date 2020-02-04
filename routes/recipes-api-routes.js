@@ -7,6 +7,16 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/recipes/:id", function(req, res) {
+    db.Recipe.findAll({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbRecipes) {
+      res.json(dbRecipes);
+    });
+  });
+
   app.post("/api/recipes", function(req, res) {
     db.Recipe.create(req.body).then(function(dbRecipes) {
       res.json(dbRecipes);
