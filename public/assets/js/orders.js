@@ -4,5 +4,6 @@ $(document).ready(function() {
     console.log(listItem);
   }
 
-  document.getElementById("#addToListBtn").onclick = addToList();
+  var critList = localStorage.length;
+  console.log(critList);
 });
