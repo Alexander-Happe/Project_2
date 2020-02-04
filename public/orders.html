@@ -9,10 +9,10 @@
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <!-- font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/js/all.min.js"
-    />
+    <script
+      src="https://kit.fontawesome.com/abe556496a.js"
+      crossorigin="anonymous"
+    ></script>
     <!-- Bulma CSS -->
     <link
       rel="stylesheet"
@@ -62,62 +62,85 @@
     <div class="block">
       <section class="section">
         <div class="container">
-          <h3 class="level-item is-size-3">Ordered form</h3>
+          <h3 class="is-size-3">Ordered form</h3>
           <div class="box">
+            <!-- first row/includes column headers -->
             <div class="columns">
-              <div class="column is-5">
-                <!-- ordered item column -->
-                <div class="column is-full">ITEM:</div>
-                <div class="column is-full">
-                  <input
-                    type="text"
-                    class="input level-item"
-                    placeholder=""
-                    value=""
-                  />
-                </div>
-              </div>
-
-              <!-- quantity column -->
-              <div class="column is-2">
-                <div class="column is-full">QUANTITY:</div>
-                <div class="column is-full">
-                  <div class="select">
-                    <select>
-                      <option>5</option>
-                      <option>10</option>
-                      <option>15</option>
-                      <option>20</option>
-                      <option>25</option>
-                      <option>30</option>
-                    </select>
+              <!-- add new item column -->
+              <div id="ItemColumn" class="column is-6">
+                <div class="column-is-full">
+                  <label class="label">ITEM:</label>
+                  <div class="field has-addons">
+                    <div class="control has-icons-left">
+                      <input
+                        id="newItemInput"
+                        type="text"
+                        class="input is-info"
+                        placeholder="Add New Item"
+                      />
+                      <span class="icon is-left">
+                        <i class="fas fa-plus-square"></i>
+                      </span>
+                    </div>
+                    <div class="control">
+                      <a id="addToListBtn" class="button is-info">ADD</a>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <div class="column is-2">
-                <div class="column is-full">UNITS:</div>
-                <div class="column is-full">
-                  <div class="select">
-                    <select>
-                      <option>each</option>
-                      <option>oz</option>
-                    </select>
+              <!-- dropdown selector for quantity column -->
+              <div class="column is-1">
+                <div class="field">
+                  <label for="quantity" class="label">QUANTITY:</label>
+                  <div class="control">
+                    <div class="select">
+                      <select>
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>25</option>
+                        <option>30</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
+
+              <!-- dropdown selector for what type of units -->
+              <div class="column is-1">
+                <div class="field">
+                  <label for="units" class="label">UNITS:</label>
+                  <div class="control">
+                    <div class="select">
+                      <select>
+                        <option>each</option>
+                        <option>oz</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- this button deletes the entire row -->
               <div class="column is-2">
-                <div class="column is-full">DELETE ITEM:</div>
-                <div class="column is-full">
-                  <button class="button level-item">
-                    Remove
-                  </button>
+                <div class="field">
+                  <label for="remove" class="label">DELETE ITEM:</label>
+                  <div class="control">
+                    <button id="removeOrderRowBtn" class="button level-item">
+                      Remove
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <!-- Create order Btn  -->
             <div class="columns is-centered">
               <div class="column has-text-centered is-4 ">
                 <button
+                  id="createOrderBtn"
                   class="button  is-large 
               is-success"
                 >

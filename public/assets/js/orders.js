@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var criticalItemField = $("#criticalItemField");
   ListCritical();
   // Function to list all ingredients critically low
   function ListCritical() {
-    $.get("/api/inventory", function(data) {
+    $.get("/api/inventory", function (data) {
       for (var i = 0; i < data.length; i++) {
         if (data[i].isCritical === true) {
           var criticalItem = `<tr class="toolow"><td> ${data[i].item} </td> 
@@ -14,4 +14,11 @@ $(document).ready(function() {
       }
     });
   }
+
+  function addToList() {
+    var listItem = document.getElementById("#newItemInput");
+    console.log(listItem);
+  }
+
+  document.getElementById("#addToListBtn").onclick = addToList();
 });
