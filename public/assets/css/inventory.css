@@ -1,4 +1,14 @@
 .toolow {
-    background-color: brown;
-    color: cornsilk;
+  background-color: brown;
+  color: cornsilk;
+}
+.toolow:hover {
+  background-color: rgb(230, 59, 59);
+  color: cornsilk;
+}
+.normalAmount:hover {
+  background-color: rgb(243, 243, 243);
+}
+.backgroundPage {
+  background-color: rgb(243, 243, 243);
 }
