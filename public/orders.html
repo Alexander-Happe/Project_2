@@ -68,11 +68,13 @@
             <div class="columns is-mobile is-centered">
               <!-- dropdown selector for quantity column -->
               <div class="column is-2">
+
+                
                 <div class="field">
                   <label for="quantity" class="label">QTY:</label>
                   <div class="control">
                     <div class="select">
-                      <select>
+                      <select id="qtySelected">
                         <option>5</option>
                         <option>10</option>
                         <option>15</option>
@@ -91,7 +93,7 @@
                   <label for="units" class="label">UNIT:</label>
                   <div class="control">
                     <div class="select">
-                      <select>
+                      <select id="unitSelected">
                         <option>each</option>
                         <option>oz</option>
                       </select>
@@ -99,9 +101,8 @@
                   </div>
                 </div>
               </div>
-
               <!-- add new item column -->
-              <div id="ItemColumn" class="column is-5-desktop">
+              <div id="ItemColumn" class="column is-4">
                 <div class="column-is-full">
                   <label class="label">ITEM:</label>
                   <div class="field has-addons">
@@ -124,6 +125,18 @@
               </div>
 
             </div>
+
+            <div class="box"  >
+              <div class="columns is-centered">
+                <div class="column has-text-centered is-6">
+              <table class="table" id="orderItemsDisplay">
+
+
+              </table>
+              </div>
+
+            </div>
+          </div>
             <!-- Create order Btn  -->
             <div class="columns is-centered">
               <div class="column has-text-centered is-4 ">

@@ -21,7 +21,9 @@ $(document).ready(function() {
       $(".toolow").click(function() {
         var x = this.children[4];
         x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
         var item = this.children[0].innerText;
         var unit = this.children[2].innerText;
         localStorage.setItem(item, unit);
@@ -47,7 +49,9 @@ $(document).ready(function() {
       $(".normalAmount").click(function() {
         var x = this.children[4];
         x.className = "show";
-        setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+        setTimeout(function() {
+          x.className = x.className.replace("show", "");
+        }, 3000);
         var item = this.children[0].innerText;
         var unit = this.children[2].innerText;
         localStorage.setItem(item, unit);
