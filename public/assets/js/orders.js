@@ -15,7 +15,7 @@ $(document).ready(function() {
       .children("option:selected")
       .val();
 
-    var row = $("<tr>").attr("class", "columns");
+    var row = $("<tr>").attr("class", "columns orderItem");
 
     $("<td>")
       .attr("class", "column item")
@@ -24,12 +24,12 @@ $(document).ready(function() {
 
     $("<td>")
       .attr("class", "column")
-      .text(addUnit)
+      .text(addqty)
       .appendTo(row);
 
     $("<td>")
       .attr("class", "column")
-      .text(addqty)
+      .text(addUnit)
       .appendTo(row);
 
     $("<button>")
@@ -50,11 +50,16 @@ $(document).ready(function() {
 
       unit = localStorage.getItem(localStorage.key(i));
 
-      var row = $("<tr>").attr("class", "columns");
+      var row = $("<tr>").attr("class", "columns orderItem");
 
       $("<td>")
         .attr("class", "column item")
         .text(item)
+        .appendTo(row);
+
+      $("<td>")
+        .attr("class", "column")
+        .text(20)
         .appendTo(row);
 
       $("<td>")
@@ -71,31 +76,15 @@ $(document).ready(function() {
       $("#addItem").val("");
       row.appendTo($("#orderItemsDisplay"));
     }
-
-    // var values = [],
-    //   keys = Object.keys(localStorage),
-    //   i = keys.length;
-    // while (i--) {
-    //   values.push(localStorage.getItem(keys[i]));
-    // }
-    // for (j = 0; j < values.length; j++) {
-    //   var newTr = $("<div>").attr("class", "");
-    //   var newListItem = $("<li>")
-    //     .attr(
-    //       "class",
-    //       "listItems column is-four-fifths-desktop is-two-thirds-tablet is-two-thirds-mobile"
-    //     )
-    //     .text(values[j]);
-    //   var addSpan = $("<button>")
-    //     .attr(
-    //       "class",
-    //       "column is-2-desktop is-2-tablet is-2-mobile listButton close"
-    //     )
-    //     .text("X");
-    //   newTr.append(newListItem, addSpan);
-    //   $("#orderItemsDisplay").append(newTr);
-    // }
   }
+
+  $("#createOrderBtn").click(function() {
+    localStorage.clear();
+    $(".orderItem").remove();
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  });
 
   // call the funciton that renders the order items list
   showStorage();
@@ -110,18 +99,5 @@ $(document).ready(function() {
     localStorage.removeItem(
       self.parent().find("td.first").prevObject[0].children[0].innerText
     );
-    // onclick function for the create order button
-
-    $(document).on("click", "#createOrderBtn", empty);
-
-    // delete the table and empty local storage.
-    function empty() {
-      var table = $("#orderItemsDisplay");
-      console.log(table);
-      // table.parent().css("display", "none");
-      // localStorage.clear();
-    }
-
-    // console.log(self.parent().find("td.first"));
   }
 });
