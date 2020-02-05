@@ -7,8 +7,8 @@ module.exports = function(app) {
       res.json(dbRecipes);
     });
   });
-
-  app.get("/api/recipes/:id", function(req, res) {
+  //get specific recipe from the recipes table then return the JSON
+  app.get("/api/recipes", function(req, res) {
     db.Recipe.findAll({
       where: {
         id: req.params.id
@@ -17,7 +17,6 @@ module.exports = function(app) {
       res.json(dbRecipes);
     });
   });
-
   //create a new recipe
   app.post("/api/recipes", function(req, res) {
     db.Recipe.create(req.body).then(function(dbRecipes) {
