@@ -1,4 +1,4 @@
-INSERT INTO inventories
+INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
     ('TOMATO', 100, 'each', 50, false, '2020-01-27 12:18:01', '2020-01-27 01:18:01');
@@ -45,7 +45,7 @@ VALUES
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('STEAK', 1600, 'oz', 800, false, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
+    ('STEAK', 400, 'oz', 800, true, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
@@ -57,7 +57,7 @@ VALUES
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('CHEESE', 1600, 'oz', 800, false, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
+    ('CHEESE', 400, 'oz', 800, true, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
@@ -81,7 +81,7 @@ VALUES
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES
-    ('PARSLEY', 160, 'oz', 80, false, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
+    ('PARSLEY', 30, 'oz', 80, true, '2020-01-27 01:18:01', '2020-01-27 01:18:01');
 INSERT INTO Inventories
     (item, qty, unit, critical, isCritical, createdAt, updatedAt)
 VALUES

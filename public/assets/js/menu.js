@@ -2,21 +2,15 @@ $(document).ready(function() {
   var menuList = $(".menu-list");
   var inventoryIds;
   var quantities;
+  var quantitiesOrg;
   var quantitiesNew;
-
-  $(document).on("click", ".delete-item", function() {
-    var listItemData = $(this).data("id");
-    $.ajax({
-      method: "DELETE",
-      url: "/api/recipes/" + listItemData
-    }).then(makeList);
-  });
-
+  //Makes on click function for the make item button
   $(document).on("click", ".make-item", function() {
     var id = $(this).data("id");
     inventoryIds = [];
     quantities = [];
     console.log(id);
+    //Gets the specified recipe for each button and adds in the quantity used to the array quantities
     $.get("/api/recipes/" + id, function(data) {
       if (data[0].ingredient1 != null) {
         inventoryIds.push(data[0].ingredient1);
@@ -58,34 +52,41 @@ $(document).ready(function() {
         inventoryIds.push(data[0].ingredient10);
         quantities.push(data[0].qty10);
       }
-      return inventoryIds, quantities;
-    })
-      .then(function(data) {
-        console.log(inventoryIds);
-        let quantitiesOrg = [];
+
+      return inventoryIds, quantities, quantitiesOrg;
+    }).then(function(data) {
+      quantitiesOrg = [];
+      quantitiesNew = [];
+      //gets the entire inventory table out of the database
+      $.get("/api/inventory", function(newData) {
+        //loops through all of the objects in the table to find the ones that match the recipe table
         for (let i = 0; i < inventoryIds.length; i++) {
-          $.get("/api/inventory/" + inventoryIds[i], function(newData) {
-            var dataToAdd = newData[0].qty;
-            quantitiesOrg.push(dataToAdd);
-          });
+          quantitiesOrg.push(newData[inventoryIds[i] - 1].qty);
+          //subtracts the origonal quantity from the ingredients table from the used amout in the recipe table
+          quantitiesNew.push(quantitiesOrg[i] - quantities[i]);
         }
-
-        console.log(quantitiesOrg);
-      })
-      .then(function(data) {
-        //console.log(quantitiesOrg);
-        //console.log(quantitiesOrg.length);
+      }).then(function(data) {
+        //makes an update to the inventory table using the new quantities
+        var url = "/api/inventory/" + inventoryIds[0];
+        console.log(url);
+        $.ajax({
+          method: "PUT",
+          url: url,
+          data: quantitiesNew[0]
+        });
       });
+    });
   });
-
+  //renders the list onto the html
   makeList();
 
   function makeList() {
+    //gets all of the recipe table
     $.get("/api/recipes", function(data) {
       for (var i = 0; i < data.length; i++) {
+        //uses the recipe table to make new html
         var menuItem = `<tr data-name='${data[i]}'><td> ${data[i].name} </td>
-      <td><a class='make-item' data-id='${data[i].id}'>Make Item</a></td>
-      <td><a class='delete-item' data-id='${data[i].id}'>Delete Item</a></td></tr>`;
+      <td><a class='make-item' data-id='${data[i].id}'>Make Item</a></td>`;
         menuList.append(menuItem);
       }
       menuItem = ``;
