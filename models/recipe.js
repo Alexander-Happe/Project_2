@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var Recipe = sequelize.define("Recipe", {
     name: {
       type: DataTypes.STRING,
@@ -68,7 +68,7 @@ module.exports = function (sequelize, DataTypes) {
       }
     }
   });
-  Recipe.associate = function (models) {
+  Recipe.associate = function(models) {
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient1" });
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient2" });
     Recipe.belongsTo(models.Inventory, { foreignKey: "ingredient3" });

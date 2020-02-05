@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Thetree94%",
+    "password": "GroupProject2",
     "database": "devolopement_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
